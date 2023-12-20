@@ -1,9 +1,163 @@
-/*
-    RESET
-*/
-
-*{
-    padding: 0px;
-    margin: 0px;
+/* Generali */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header */
+/* sx */
+header {
+    display: flex;
+    height: 45px;
+    justify-content: space-between;
+}
+
+header section {
+    display: flex;
+    align-items: center;
+}
+
+#logo img{
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+}
+/* dx */
+#options {
+    font-size: 11px;
+    margin-right: 10px;
+}
+
+#difficulty-mode {
+    display: flex;
+    align-items: center;
+}
+
+#difficulty-selector {
+    font-size: 11px;
+    margin: 0 3px;
+    padding-right: 40px;
+}
+
+#play {
+    font-size: 11px;
+    padding: 0 20px;
+}
+
+/* Main */
+main {
+    height: calc(100vh - 75px);
+    min-height: 370px;
+    background-color: #7FFFD4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 280px;
+    height: 280px;
+    border: 1px solid black;
+    position: relative;
+}
+
+.started {
+    border: none !important;
+}
+
+#info {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+[class^="grid-square-"] {
+    border: 1px solid black;
+    position: relative;
+    cursor: pointer;
+}
+
+[class^="grid-square-"].easy {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+[class^="grid-square-"].medium {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+[class^="grid-square-"].hard {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+[class^="grid-square-"].active {
+    background-color: #6495ED;
+}
+
+[class^="grid-square-"].bomb {
+    background-color: #DC143C;
+}
+
+[class^="grid-square-"].unexploded {
+    background-color: #DC143C;
+    animation: unexplodedBomb 1s infinite;
+}
+
+@keyframes unexplodedBomb {
+    50% {
+        filter: saturate(300%);
+    }
+}
+
+.grid-number {
+    font-size: 11px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#game-end {
+    text-align: center;
+    font-size: 11px;
+    position: absolute;
+    bottom: 15px;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 11px;
+    height: 30px;
+}
+
+#n-match {
+    font-weight: bold;
+}
+
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.inactive {
+    pointer-events: none;
+    cursor: default;
 }
